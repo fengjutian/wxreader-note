@@ -1,0 +1,249 @@
+{
+  "main": {
+    "id": "5c36d80ad2401fa8",
+    "type": "split",
+    "children": [
+      {
+        "id": "af1958c8a3ac2e08",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "eb1c25ad7d761953",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "《遥远的救世主》在说什么.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "《遥远的救世主》在说什么"
+            }
+          },
+          {
+            "id": "fd25f42c458c60c0",
+            "type": "leaf",
+            "state": {
+              "type": "weread-bookshelf-view",
+              "state": {},
+              "icon": "library",
+              "title": "微信读书书架"
+            }
+          },
+          {
+            "id": "16afd144555a793f",
+            "type": "leaf",
+            "state": {
+              "type": "graph",
+              "state": {},
+              "icon": "lucide-git-fork",
+              "title": "关系图谱"
+            }
+          }
+        ],
+        "currentTab": 2
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "abb8ae61d8d66e2e",
+    "type": "split",
+    "children": [
+      {
+        "id": "a804c13c4fb2aada",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "f55277b6e6066ac5",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "文件列表"
+            }
+          },
+          {
+            "id": "7960816b0bbfbaab",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "搜索"
+            }
+          },
+          {
+            "id": "feb1c92c8ca5712b",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "书签"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "12134b1ea917e78b",
+    "type": "split",
+    "children": [
+      {
+        "id": "e2a3d5a5d145ff15",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "84ebbcef0a9c55bc",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "反向链接"
+            }
+          },
+          {
+            "id": "22c5c79f3cfdb49d",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "出链"
+            }
+          },
+          {
+            "id": "fec253b854c39ab8",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "标签"
+            }
+          },
+          {
+            "id": "d2fb20723150eb7f",
+            "type": "leaf",
+            "state": {
+              "type": "all-properties",
+              "state": {
+                "sortOrder": "frequency",
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-archive",
+              "title": "添加笔记属性"
+            }
+          },
+          {
+            "id": "a201cbbf0ff9a4e4",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "大纲"
+            }
+          },
+          {
+            "id": "2f85291c7da54cff",
+            "type": "leaf",
+            "state": {
+              "type": "file-properties",
+              "state": {},
+              "icon": "lucide-info",
+              "title": "笔记属性"
+            }
+          }
+        ],
+        "currentTab": 5
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:打开快速切换": false,
+      "graph:查看关系图谱": false,
+      "canvas:新建白板": false,
+      "daily-notes:打开/创建今天的日记": false,
+      "templates:插入模板": false,
+      "command-palette:打开命令面板": false,
+      "bases:新建数据库": false,
+      "obsidian-weread-plugin:打开微信读书书架": false,
+      "obsidian-git:Open Git source control": false
+    }
+  },
+  "active": "16afd144555a793f",
+  "lastOpenFiles": [
+    "图解大模型：生成式AI原理与实战.md",
+    "历史的温度5：那些博弈、较量与人性.md",
+    "两晋南北朝：迷乱狂欢三百年.md",
+    "李鸿章·袁世凯（全二册）.md",
+    "李中莹亲密关系全面技巧-757656.md",
+    "李诞工作手册（万字全新增订）.md",
+    "黎东方讲史之续·细说宋朝.md",
+    "黎东方讲史之续·细说明朝.md",
+    "老南京（民国趣读·老城记）.md",
+    "婚姻心理学.md",
+    "婚姻的真相.md",
+    "回避型人格自救手册.md",
+    "和秋叶一起学Excel（第2版）.md",
+    "侯景之乱：六朝的黄昏.md",
+    "豪门兴衰：香港商业百年.md",
+    "佛教十三经（中华经典普及文库）.md",
+    "反脆弱：从不确定性中获益.md",
+    "樊登推荐书单·职场变形记（套装共8册）.md",
+    "第一行代码：Android（第3版）.md",
+    "第一行代码：Android（第2版）.md",
+    "大宋楼台：图说宋人建筑.md",
+    "大宋开国.md",
+    "大宋繁华：造极之世的表与里（经纬度丛书）.md",
+    "边做边学深度强化学习：PyTorch程序设计实践.md",
+    "知识图谱建模与智能推理技术.md",
+    "《遥远的救世主》在说什么.md",
+    "未命名 2.base",
+    "未命名 1.base",
+    "未命名.canvas",
+    "未命名.base"
+  ]
+}
