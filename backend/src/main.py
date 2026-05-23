@@ -128,8 +128,9 @@ async def root() -> dict:
 
 
 # Import and include routers
-# Note: Routers will be imported and included after they are created
-# This is done in src/api/__init__.py
+from src.api import api_router
+
+app.include_router(api_router)
 
 def get_application() -> FastAPI:
     """Get the FastAPI application instance.
