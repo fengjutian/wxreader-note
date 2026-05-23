@@ -40,7 +40,7 @@
   "template": "",
   "noteCountLimit": -1,
   "subFolderType": "-1",
-  "fileNameType": "BOOK_NAME",
+  "fileNameType": "BOOK_NAME_AUTHOR",
   "removeParens": false,
   "removeParensWhitelist": "",
   "filterInlineImages": false,
@@ -4027,7 +4027,7 @@
       "errorMessage": "Cannot read properties of undefined (reading 'map')"
     }
   ],
-  "bookshelfSortMode": "recent",
+  "bookshelfSortMode": "title",
   "bookshelfGroupByYear": true,
   "bookshelfDefaultSyncStatusFilter": "all",
   "themes": [
@@ -4062,7 +4062,7 @@
       "source": "builtin"
     }
   ],
-  "activeThemeId": "builtin_merged",
+  "activeThemeId": "builtin_official",
   "wereadApiKey": "wrk-g0gG1kFFQLKwrz19h3HM9wAA",
   "readingStatsLocation": "/",
   "statsStartYear": 0

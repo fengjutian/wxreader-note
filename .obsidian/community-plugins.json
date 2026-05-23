@@ -1,4 +1,8 @@
 [
   "obsidian-weread-plugin",
-  "obsidian-git"
+  "obsidian-git",
+  "obsidian-style-settings",
+  "obsidian-icon-folder",
+  "obsidian-excalidraw-plugin",
+  "omnisearch"
 ]
