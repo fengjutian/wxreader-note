@@ -1,7 +1,4 @@
-"""Concept extraction service using LLM.
-
-Extracts concepts, domains, emotions, and insights from highlights.
-"""
+"""Concept extraction service using LLM."""
 
 from dataclasses import dataclass
 from typing import Optional
@@ -34,37 +31,9 @@ class ExtractedConcepts:
 
 
 class ConceptExtractor:
-    """LLM-based concept extractor for reading highlights.
+    """LLM-based concept extractor for reading highlights."""
 
-    Uses a language model to analyze highlights and extract:
-    - Core concepts (3-8 concepts)
-    - Subject domain
-    - Emotional tone
-    - User focus point
-    - Author viewpoint
-    """
-
-    DEFAULT_PROMPT_TEMPLATE = """���������Ķ��������ݣ���ȡ�ؼ���Ϣ��
-
-�������ݣ�
-{highlight}
-
-����JSON��ʽ����������Ϣ��
-{{
-    "concepts": ["����1", "����2", ...],  // ��ȡ�ĺ��ĸ��3-8����
-    "domain": "ѧ������",                    // ѧ�Ʒ���
-    "emotion": "��������",                  // agreement/questioning/objection/excitement/neutral
-    "user_focus": "�û���ע��",             // �û������ε�ԭ��
-    "author_viewpoint": "���߹۵�"          // ��������һ�ε���Ҫ�۵�
-}}
-
-Ҫ��
-- conceptsӦ�÷�ӳ�ö���ĺ������ʹ�����ʻ����
-- domainӦ��ʹ�ó�����ѧ�Ʒ��࣬�磺����ѧ����ѧ������ѧ������ѧ���Ƽ�����ʷ��
-- emotionӦ��ѡ������ϵ���������
-- user_focusӦ�÷����û�Ϊʲô����������
-- author_viewpointӦ���ܽ���������λ��еĺ��Ĺ۵�
-"""
+    DEFAULT_PROMPT_TEMPLATE = "Analyze the following highlight and extract key information.\n\nHighlight content:\n{highlight}\n\nPlease return the following information in JSON format:\n{{\n    \"concepts\": [\"concept1\", \"concept2\", ...],\n    \"domain\": \"subject domain\",\n    \"emotion\": \"agreement/questioning/objection/excitement/neutral\",\n    \"user_focus\": \"why user marked this\",\n    \"author_viewpoint\": \"author main viewpoint\"\n}}\n"
 
     def __init__(
         self,
@@ -72,31 +41,17 @@ class ConceptExtractor:
         prompt_template: Optional[str] = None,
         max_retries: int = 3,
     ) -> None:
-        """Initialize concept extractor.
-
-        Args:
-            llm_provider: LLM provider instance (creates new if None).
-            prompt_template: Custom prompt template.
-            max_retries: Maximum retry attempts for extraction.
-        """
         self.llm = llm_provider or LLMProvider()
         self.prompt_template = prompt_template or self.DEFAULT_PROMPT_TEMPLATE
         self.max_retries = max_retries
         self.logger = get_logger(self.__class__.__name__)
 
     def extract(self, highlight: str) -> Optional[ExtractedConcepts]:
-        """Extract concepts from a highlight.
-
-        Args:
-            highlight: The highlight text to analyze.
-
-        Returns:
-            ExtractedConcepts with extracted information, or None on failure.
-        """
+        """Extract concepts from a highlight."""
         try:
             prompt = self._format_prompt(highlight)
             messages = [
-                {"role": "system", "content": "����һ���Ķ�����ר�ң��ó����ı�����ȡ�ؼ��������Ϣ��"},
+                {"role": "system", "content": "You are a reading analysis expert."},
                 {"role": "user", "content": prompt},
             ]
 
@@ -111,14 +66,7 @@ class ConceptExtractor:
         self,
         highlights: list[str],
     ) -> list[Optional[ExtractedConcepts]]:
-        """Extract concepts from multiple highlights.
-
-        Args:
-            highlights: List of highlight texts.
-
-        Returns:
-            List of ExtractedConcepts (or None for failures).
-        """
+        """Extract concepts from multiple highlights."""
         results = []
         for highlight in highlights:
             result = self.extract(highlight)
@@ -132,25 +80,11 @@ class ConceptExtractor:
         return results
 
     def _format_prompt(self, highlight: str) -> str:
-        """Format prompt with highlight content.
-
-        Args:
-            highlight: Highlight text.
-
-        Returns:
-            Formatted prompt string.
-        """
+        """Format prompt with highlight content."""
         return self.prompt_template.format(highlight=highlight)
 
     def _parse_response(self, response: LLMResponse) -> Optional[ExtractedConcepts]:
-        """Parse LLM response to ExtractedConcepts.
-
-        Args:
-            response: LLM response.
-
-        Returns:
-            ExtractedConcepts instance, or None on parse failure.
-        """
+        """Parse LLM response to ExtractedConcepts."""
         if not response.content:
             return None
 
@@ -158,7 +92,6 @@ class ConceptExtractor:
             import json
             import re
 
-            # Try to extract JSON from response
             json_match = re.search(r"\{[^{}]*\}", response.content, re.DOTALL)
             if json_match:
                 data = json.loads(json_match.group())
