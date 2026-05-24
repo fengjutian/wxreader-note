@@ -1,7 +1,7 @@
 """Book model for storing book metadata."""
 
 import uuid
-from datetime import date
+from datetime import date, datetime
 from typing import TYPE_CHECKING, Optional
 
 from sqlalchemy import String, Text, Date, func
@@ -32,10 +32,10 @@ class Book(Base):
     reading_time: Mapped[Optional[str]] = mapped_column(String(50), nullable=True)
     progress: Mapped[Optional[float]] = mapped_column(nullable=True)
     reading_date: Mapped[Optional[date]] = mapped_column(Date, nullable=True)
-    created_at: Mapped[Optional] = mapped_column(
+    created_at: Mapped[Optional[datetime]] = mapped_column(
         server_default=func.now(),
     )
-    updated_at: Mapped[Optional] = mapped_column(
+    updated_at: Mapped[Optional[datetime]] = mapped_column(
         server_default=func.now(),
         onupdate=func.now(),
     )

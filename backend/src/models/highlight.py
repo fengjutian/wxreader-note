@@ -53,7 +53,7 @@ class Highlight(Base):
     concepts: Mapped[Optional[list]] = mapped_column(JSONB, nullable=True)
     emotion: Mapped[Optional[str]] = mapped_column(String(50), nullable=True)
     domain: Mapped[Optional[str]] = mapped_column(String(100), nullable=True)
-    created_at: Mapped = mapped_column(
+    created_at: Mapped[Optional[datetime]] = mapped_column(
         server_default=func.now(),
     )
 

@@ -1,6 +1,7 @@
 """Reader model for storing user profile and preferences."""
 
 import uuid
+from datetime import datetime
 from typing import Optional
 
 from sqlalchemy import String, Text, DateTime, func
@@ -11,17 +12,7 @@ from src.models import Base
 
 
 class Reader(Base):
-    """Reader entity representing a user/reader.
-
-    Attributes:
-        id: Unique identifier (UUID).
-        name: Reader's display name.
-        reading_profile: AI-generated reading profile (JSON).
-        interests: List of interested domains.
-        preferences: User preferences.
-        created_at: Record creation timestamp.
-        updated_at: Record update timestamp.
-    """
+    """Reader entity representing a user/reader."""
 
     __tablename__ = "readers"
 
@@ -34,10 +25,10 @@ class Reader(Base):
     reading_profile: Mapped[Optional[dict]] = mapped_column(JSONB, nullable=True)
     interests: Mapped[Optional[list]] = mapped_column(JSONB, nullable=True)
     preferences: Mapped[Optional[dict]] = mapped_column(JSONB, nullable=True)
-    created_at: Mapped = mapped_column(
+    created_at: Mapped[Optional[datetime]] = mapped_column(
         server_default=func.now(),
     )
-    updated_at: Mapped = mapped_column(
+    updated_at: Mapped[Optional[datetime]] = mapped_column(
         server_default=func.now(),
         onupdate=func.now(),
     )

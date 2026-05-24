@@ -1,6 +1,7 @@
 """Concept model for storing extracted concepts."""
 
 import uuid
+from datetime import datetime
 from typing import Optional
 
 from sqlalchemy import String, Integer, DateTime, func
@@ -11,17 +12,7 @@ from src.models import Base
 
 
 class Concept(Base):
-    """Concept entity representing an extracted concept from highlights.
-
-    Attributes:
-        id: Unique identifier (UUID).
-        name: Concept name/label.
-        domain: Subject domain (e.g., philosophy, management).
-        frequency: Number of times this concept appears.
-        last_mentioned: Last time this concept was mentioned.
-        description: Optional description.
-        created_at: Record creation timestamp.
-    """
+    """Concept entity representing an extracted concept from highlights."""
 
     __tablename__ = "concepts"
 
@@ -35,7 +26,7 @@ class Concept(Base):
     frequency: Mapped[int] = mapped_column(Integer, default=0)
     last_mentioned: Mapped[Optional[str]] = mapped_column(String(100), nullable=True)
     description: Mapped[Optional[str]] = mapped_column(String(500), nullable=True)
-    created_at: Mapped = mapped_column(
+    created_at: Mapped[Optional[datetime]] = mapped_column(
         server_default=func.now(),
     )
 

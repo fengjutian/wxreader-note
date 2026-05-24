@@ -1,6 +1,7 @@
 """Chapter model for storing book chapters."""
 
 import uuid
+from datetime import datetime
 from typing import TYPE_CHECKING, Optional
 
 from sqlalchemy import String, Integer, ForeignKey, func
@@ -14,16 +15,7 @@ if TYPE_CHECKING:
 
 
 class Chapter(Base):
-    """Chapter entity representing a book chapter.
-
-    Attributes:
-        id: Unique identifier (UUID).
-        book_id: Foreign key to the parent book.
-        title: Chapter title.
-        order: Chapter order number.
-        highlight_count: Number of highlights in this chapter.
-        created_at: Record creation timestamp.
-    """
+    """Chapter entity representing a book chapter."""
 
     __tablename__ = "chapters"
 
@@ -41,7 +33,7 @@ class Chapter(Base):
     title: Mapped[str] = mapped_column(String(255), nullable=False)
     order: Mapped[int] = mapped_column(Integer, default=0)
     highlight_count: Mapped[int] = mapped_column(Integer, default=0)
-    created_at: Mapped = mapped_column(
+    created_at: Mapped[Optional[datetime]] = mapped_column(
         server_default=func.now(),
     )
 
