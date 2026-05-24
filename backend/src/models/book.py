@@ -4,8 +4,7 @@ import uuid
 from datetime import date, datetime
 from typing import TYPE_CHECKING, Optional
 
-from sqlalchemy import String, Text, Date, func
-from sqlalchemy.dialects.postgresql import UUID
+from sqlalchemy import String, Text, Date, DateTime, func
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 
 from src.models import Base
@@ -20,10 +19,10 @@ class Book(Base):
 
     __tablename__ = "books"
 
-    id: Mapped[uuid.UUID] = mapped_column(
-        UUID(as_uuid=True),
+    id: Mapped[str] = mapped_column(
+        String(36),
         primary_key=True,
-        default=uuid.uuid4,
+        default=lambda: str(uuid.uuid4()),
     )
     title: Mapped[str] = mapped_column(String(255), nullable=False, index=True)
     author: Mapped[str] = mapped_column(String(255), nullable=False)
@@ -33,9 +32,11 @@ class Book(Base):
     progress: Mapped[Optional[float]] = mapped_column(nullable=True)
     reading_date: Mapped[Optional[date]] = mapped_column(Date, nullable=True)
     created_at: Mapped[Optional[datetime]] = mapped_column(
+        DateTime,
         server_default=func.now(),
     )
     updated_at: Mapped[Optional[datetime]] = mapped_column(
+        DateTime,
         server_default=func.now(),
         onupdate=func.now(),
     )
