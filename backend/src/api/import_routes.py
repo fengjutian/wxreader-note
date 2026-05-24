@@ -4,7 +4,7 @@ from fastapi import APIRouter, UploadFile, File, HTTPException, Depends
 from sqlalchemy.orm import Session
 
 from src.database import get_db
-from src.services.markdown_parser import markdown_parser
+from src.services.markdown_parser import MarkdownParser
 from src.services.book_service import book_service
 from src.services.highlight_service import highlight_service
 from src.schemas.book import BookCreate
