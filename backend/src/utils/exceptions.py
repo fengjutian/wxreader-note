@@ -124,7 +124,7 @@ class AIProviderException(AIException):
         )
 
 
-class AI RateLimitException(AIException):
+class AIRateLimitException(AIException):
     """Raised when AI API rate limit is exceeded."""
 
     def __init__(self, retry_after_seconds: Optional[int] = None) -> None:

@@ -10,8 +10,6 @@ from sqlalchemy import create_engine
 from sqlalchemy.orm import Session, sessionmaker
 
 from src.models import Base
-from src.database import get_db
-from src.main import app
 
 
 # Test database URL (SQLite for testing)
@@ -49,6 +47,10 @@ def db_session(test_engine) -> Generator[Session, None, None]:
 @pytest.fixture(scope="function")
 def client(db_session) -> Generator[TestClient, None, None]:
     """Create a test client with database override."""
+    # Import here to avoid heavy dependencies
+    from src.database import get_db
+    from src.main import app
+
     def override_get_db():
         try:
             yield db_session
