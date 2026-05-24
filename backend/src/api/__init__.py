@@ -3,8 +3,13 @@
 from fastapi import APIRouter
 
 # Import routers
-from src.api import import_router, books_router, analyze_router
-from src.api import graph_router, profile_router, search_router, timeline_router
+from src.api.books import router as books_router
+from src.api.import_routes import router as import_router
+from src.api.analyze import router as analyze_router
+from src.api.graph import router as graph_router
+from src.api.profile import router as profile_router
+from src.api.search import router as search_router
+from src.api.timeline import router as timeline_router
 
 # Create main API router
 api_router = APIRouter(prefix="/api/v1")

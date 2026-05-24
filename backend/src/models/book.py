@@ -16,20 +16,7 @@ if TYPE_CHECKING:
 
 
 class Book(Base):
-    """Book entity representing a book with reading data.
-
-    Attributes:
-        id: Unique identifier (UUID).
-        title: Book title.
-        author: Author name.
-        category: Book category/genre.
-        isbn: ISBN number (optional).
-        reading_time: Total reading time.
-        progress: Reading progress percentage (0-100).
-        reading_date: Date when reading started/finished.
-        created_at: Record creation timestamp.
-        updated_at: Record update timestamp.
-    """
+    """Book entity representing a book with reading data."""
 
     __tablename__ = "books"
 
@@ -45,10 +32,10 @@ class Book(Base):
     reading_time: Mapped[Optional[str]] = mapped_column(String(50), nullable=True)
     progress: Mapped[Optional[float]] = mapped_column(nullable=True)
     reading_date: Mapped[Optional[date]] = mapped_column(Date, nullable=True)
-    created_at: Mapped = mapped_column(
+    created_at: Mapped[Optional] = mapped_column(
         server_default=func.now(),
     )
-    updated_at: Mapped = mapped_column(
+    updated_at: Mapped[Optional] = mapped_column(
         server_default=func.now(),
         onupdate=func.now(),
     )
