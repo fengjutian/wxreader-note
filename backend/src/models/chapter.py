@@ -4,8 +4,7 @@ import uuid
 from datetime import datetime
 from typing import TYPE_CHECKING, Optional
 
-from sqlalchemy import String, Integer, ForeignKey, func
-from sqlalchemy.dialects.postgresql import UUID
+from sqlalchemy import String, Integer, ForeignKey, DateTime, func
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 
 from src.models import Base
@@ -19,13 +18,13 @@ class Chapter(Base):
 
     __tablename__ = "chapters"
 
-    id: Mapped[uuid.UUID] = mapped_column(
-        UUID(as_uuid=True),
+    id: Mapped[str] = mapped_column(
+        String(36),
         primary_key=True,
-        default=uuid.uuid4,
+        default=lambda: str(uuid.uuid4()),
     )
-    book_id: Mapped[uuid.UUID] = mapped_column(
-        UUID(as_uuid=True),
+    book_id: Mapped[str] = mapped_column(
+        String(36),
         ForeignKey("books.id", ondelete="CASCADE"),
         nullable=False,
         index=True,
@@ -34,6 +33,7 @@ class Chapter(Base):
     order: Mapped[int] = mapped_column(Integer, default=0)
     highlight_count: Mapped[int] = mapped_column(Integer, default=0)
     created_at: Mapped[Optional[datetime]] = mapped_column(
+        DateTime,
         server_default=func.now(),
     )
 

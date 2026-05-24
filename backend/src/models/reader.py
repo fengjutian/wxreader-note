@@ -36,12 +36,3 @@ class Reader(Base):
 
     def __repr__(self) -> str:
         return f"<Reader(id={self.id}, name={self.name!r})>"
-        server_default=func.now(),
-    )
-    updated_at: Mapped[Optional[datetime]] = mapped_column(
-        server_default=func.now(),
-        onupdate=func.now(),
-    )
-
-    def __repr__(self) -> str:
-        return f"<Reader(id={self.id}, name={self.name!r})>"
